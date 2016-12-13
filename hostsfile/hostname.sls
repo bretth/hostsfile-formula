@@ -2,11 +2,7 @@
 # To match the hostname with the entries created by the hostsfile state, also execute this state.
 
 {%- set fqdn = grains['id'] %}
-{%- if grains['os_family'] == 'Debian' %}
-  {% set hostname = fqdn.split('.')[0] %}
-{% else %}
-  {% set hostname = fqdn %}
-{% endif %}
+{% set hostname = fqdn %}
 
 {%- if grains['os_family'] == 'RedHat' %}
 
